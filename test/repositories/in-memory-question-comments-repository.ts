@@ -44,7 +44,7 @@ export class InMemoryQuestionCommentsRepository
       .slice((page - 1) * 20, page * 20)
       .map((comment) => {
         const author = this.studentsRepository.items.find((student) => {
-          return student.id.equals(comment.authorId) // seja igual ao autor
+          return student.id.equals(comment.authorId) // seja igual ao autor 
         })
 
         if (!author) {

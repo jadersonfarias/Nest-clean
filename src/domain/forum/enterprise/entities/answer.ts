@@ -65,6 +65,7 @@ export class Answer extends AggregateRoot<AnswerProps> {
     props: Optional<AnswerProps, 'createdAt' | 'attachments'>,
     id?: UniqueEntityID,
   ) {
+
     const answer = new Answer(
       {
         ...props,
@@ -79,6 +80,7 @@ export class Answer extends AggregateRoot<AnswerProps> {
     if (isNewAnswer) {
       answer.addDomainEvent(new AnswerCreatedEvent(answer))
     }
+    
     return answer
   }
 }

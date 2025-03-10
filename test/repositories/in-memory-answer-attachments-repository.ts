@@ -4,12 +4,14 @@ export class InMemoryAnswerAttachmentsRepository
   implements AnswerAttachmentsRepository
 {
   public items: AnswerAttachment[] = []
+
   async findManyByAnswerId(answerId: string) {
     const answerAttachments = this.items.filter(
       (item) => item.answerId.toString() === answerId,
     )
     return answerAttachments
   }
+
   async deleteManyByAnswerId(answerId: string) {
     const answerAttachments = this.items.filter(
       (item) => item.answerId.toString() !== answerId,
@@ -18,7 +20,7 @@ export class InMemoryAnswerAttachmentsRepository
   }
 
   async createMany(attachments: AnswerAttachment[]): Promise<void> {
-      console.log(attachments)
+      // console.log(attachments)
       this.items.push(...attachments)
     }
   
